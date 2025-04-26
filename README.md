@@ -26,4 +26,4 @@
 
 ### 结语
 - 如有任何问题，欢迎与<qzddmyc@163.com>联系
-- If you have found this project because of the course design of Data Structures and Algorithm Design in ujs, I hope you can give it a star, thanks : )
+- If you have found this project because of the course design of Data Structures and Algorithm Design in ujs or any other school, I hope you can give it a star, thanks.
