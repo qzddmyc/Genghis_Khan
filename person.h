@@ -2,7 +2,7 @@
 
 #include "constant_vals_funcs.h"
 
-// ÈËÎïÀà£¬°üº¬µ¥¸öÈËÎïµÄËùÓĞĞÅÏ¢¡£
+// äººç‰©ç±»ï¼ŒåŒ…å«å•ä¸ªäººç‰©çš„æ‰€æœ‰ä¿¡æ¯ã€‚
 
 struct Person {
     string name;

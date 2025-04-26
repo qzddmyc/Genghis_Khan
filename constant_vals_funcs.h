@@ -1,6 +1,6 @@
 #pragma once
 
-// ±£´æÁËËùÓÐµÄ»ù±¾Í·ÎÄ¼þ£¬¼°¶¨ÒåµÄ³£Öµ£¬ÆÕÍ¨º¯Êý£¬ÆäÓàËùÓÐ.h¼°main¾ù°üº¬ÓÐ¸ÃÎÄ¼þ¡£
+// ä¿å­˜äº†æ‰€æœ‰çš„åŸºæœ¬å¤´æ–‡ä»¶ï¼ŒåŠå®šä¹‰çš„å¸¸å€¼ï¼Œæ™®é€šå‡½æ•°ï¼Œå…¶ä½™æ‰€æœ‰.håŠmainå‡åŒ…å«æœ‰è¯¥æ–‡ä»¶ã€‚
 
 #include "iostream"
 #include "string"
@@ -18,18 +18,18 @@ extern int MAX_AGE;
 
 extern HANDLE hConsole;
 
-//¸ü¸ÄÖÕ¶ËÑÕÉ«
+//æ›´æ”¹ç»ˆç«¯é¢œè‰²
 void set_cout_RED();
 
 void set_cout_GREEN();
 
-//»Ö¸´ÖÕ¶ËÑÕÉ«
+//æ¢å¤ç»ˆç«¯é¢œè‰²
 void reset_cout_color();
 
-//Çå¿Õ»º³åÇøËùÓÐÄÚÈÝ
+//æ¸…ç©ºç¼“å†²åŒºæ‰€æœ‰å†…å®¹
 void clear_all();
 
-//»ñÈ¡ÓÃ»§ÊäÈëµÄÒ»¸öintÊý×Ö£¬ÇÒ±£Ö¤¸ÃÊý×ÖÔÚÇø¼ä[fro, to]ÄÚ£¬flag¾ö¶¨ÁËÊäÈëÓÐÎóÊ±µÄ±¨´íÓï¾ä¡£
+//èŽ·å–ç”¨æˆ·è¾“å…¥çš„ä¸€ä¸ªintæ•°å­—ï¼Œä¸”ä¿è¯è¯¥æ•°å­—åœ¨åŒºé—´[fro, to]å†…ï¼Œflagå†³å®šäº†è¾“å…¥æœ‰è¯¯æ—¶çš„æŠ¥é”™è¯­å¥ã€‚
 int GetIndex(int, int, int);
 
 int min(int, int);

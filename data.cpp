@@ -5,12 +5,12 @@
 void Data::append_auto(const string &_n, int _b, int _d, const string &_p) {
     if (_n == "None") {
         set_cout_RED();
-        cout << "·Ç·¨ÐÕÃû£º" << _n << "£¬Ìí¼ÓÊ§°Ü£¡" << endl;
+        cout << "éžæ³•å§“åï¼š" << _n << "ï¼Œæ·»åŠ å¤±è´¥ï¼" << endl;
         reset_cout_color();
         return;
     }
 
-    //ÌØÀý´¦Àí¡£
+    //ç‰¹ä¾‹å¤„ç†ã€‚
     if (head == nullptr || _p == "None") {
         if (head == nullptr && _p == "None") {
             head = new Node(_n, _b, _d, _p);
@@ -46,14 +46,14 @@ Node *Data::GetNode_byName(const string &tar) {
 void Data::AddChild_toParent(const string &tar, Node *n_nd) {
     if (n_nd->val.name == "None") {
         set_cout_RED();
-        cout << "·Ç·¨ÐÕÃû£º" << n_nd->val.name << "£¬Ìí¼ÓÊ§°Ü£¡" << endl;
+        cout << "éžæ³•å§“åï¼š" << n_nd->val.name << "ï¼Œæ·»åŠ å¤±è´¥ï¼" << endl;
         reset_cout_color();
         return;
     }
 
     if (n_nd->val.name == n_nd->val.parent) {
         set_cout_RED();
-        cout << "×Ô¼ºµÄÃû×Ö²»ÄÜÓë¸¸Ç×µÄÐÕÃûÏàÍ¬£¡Ìí¼ÓÊ§°Ü¡£" << endl;
+        cout << "è‡ªå·±çš„åå­—ä¸èƒ½ä¸Žçˆ¶äº²çš„å§“åç›¸åŒï¼æ·»åŠ å¤±è´¥ã€‚" << endl;
         reset_cout_color();
         delete n_nd;
         return;
@@ -61,7 +61,7 @@ void Data::AddChild_toParent(const string &tar, Node *n_nd) {
 
     if (this->IsMemberExist(n_nd->val.name)) {
         set_cout_RED();
-        cout << "ÐÕÃû" << n_nd->val.name << "ÒÑ´æÔÚ£¡Ìí¼ÓÊ§°Ü£¡" << endl;
+        cout << "å§“å" << n_nd->val.name << "å·²å­˜åœ¨ï¼æ·»åŠ å¤±è´¥ï¼" << endl;
         reset_cout_color();
         delete n_nd;
         return;
@@ -82,14 +82,14 @@ void Data::AddChild_toParent(const string &tar, Node *n_nd) {
         return;
     }
 
-    // ×Ô¼ºÊÇÐÖµÜÖÐ×îÐ¡µÄÒ»¸ö
+    // è‡ªå·±æ˜¯å…„å¼Ÿä¸­æœ€å°çš„ä¸€ä¸ª
     if (par->nextCld->val.birth_year > n_nd->val.birth_year) {
         n_nd->nextBro = par->nextCld;
         par->nextCld = n_nd;
         return;
     }
 
-    // ²éÕÒµÚÒ»¸ö±È×Ô¼ºÄêÁä´óµÄÐÖµÜ¡£
+    // æŸ¥æ‰¾ç¬¬ä¸€ä¸ªæ¯”è‡ªå·±å¹´é¾„å¤§çš„å…„å¼Ÿã€‚
     Node *tmp = par->nextCld;
     while (tmp->nextBro && tmp->nextBro->val.birth_year <= n_nd->val.birth_year) {
         tmp = tmp->nextBro;
@@ -166,33 +166,33 @@ void Data::del_nodes_after_the_node_given(Node *n, bool showData) {
 }
 
 void Data::show_List_title() {
-    cout << "©°------©Ð---------------©Ð----------------©Ð-----------------©Ð----------------©´" << endl;
-    cout << "   ´ú\t"
-         << left << setw(GAP) << "ÐÕÃû"
-         << left << setw(GAP) << "ÉúÄê"
-         << left << setw(GAP) << "×äÄê"
-         << left << setw(GAP) << "¸¸Ç×"
+    cout << "â”Œ------â”¬---------------â”¬----------------â”¬-----------------â”¬----------------â”" << endl;
+    cout << "   ä»£\t"
+         << left << setw(GAP) << "å§“å"
+         << left << setw(GAP) << "ç”Ÿå¹´"
+         << left << setw(GAP) << "å’å¹´"
+         << left << setw(GAP) << "çˆ¶äº²"
          << endl;
     cout << " ------|---------------|----------------|-----------------|----------------" << endl;
 }
 
 void Data::show_List_title_without_dynasty() {
-    cout << "©°---------------©Ð----------------©Ð-----------------©Ð----------------©´" << endl;
+    cout << "â”Œ---------------â”¬----------------â”¬-----------------â”¬----------------â”" << endl;
     cout << "  "
-         << left << setw(GAP) << "ÐÕÃû"
-         << left << setw(GAP) << "ÉúÄê"
-         << left << setw(GAP) << "×äÄê"
-         << left << setw(GAP) << "¸¸Ç×"
+         << left << setw(GAP) << "å§“å"
+         << left << setw(GAP) << "ç”Ÿå¹´"
+         << left << setw(GAP) << "å’å¹´"
+         << left << setw(GAP) << "çˆ¶äº²"
          << endl;
     cout << " ---------------|----------------|-----------------|----------------" << endl;
 }
 
 void Data::show_List_tail() {
-    cout << "©¸------©Ø---------------©Ø----------------©Ø-----------------©Ø----------------©¼" << endl;
+    cout << "â””------â”´---------------â”´----------------â”´-----------------â”´----------------â”˜" << endl;
 }
 
 void Data::show_List_tail_without_dynasty() {
-    cout << "©¸---------------©Ø----------------©Ø-----------------©Ø----------------©¼" << endl;
+    cout << "â””---------------â”´----------------â”´-----------------â”´----------------â”˜" << endl;
 }
 
 void Data::show_List_of_single_member(Node *nd, bool showGeneration) {
@@ -202,7 +202,7 @@ void Data::show_List_of_single_member(Node *nd, bool showGeneration) {
     }
     cout << " ";
     if (showGeneration)
-        cout << "µÚ" << nd->Generation_used_ONLY_in_Queue << "´ú\t";
+        cout << "ç¬¬" << nd->Generation_used_ONLY_in_Queue << "ä»£\t";
     else
         cout << " ";
     cout << left << setw(GAP) << nd->val.name
@@ -216,12 +216,12 @@ void Data::show_List_of_single_member(Node *nd, bool showGeneration) {
 }
 
 void Data::show_List_head_with_age() {
-    cout << "©°------©Ð---------------©Ð----------------©Ð-----------------©Ð----------------©´" << endl;
-    cout << "  ÄêÁä\t"
-         << left << setw(GAP) << "ÐÕÃû"
-         << left << setw(GAP) << "ÉúÄê"
-         << left << setw(GAP) << "×äÄê"
-         << left << setw(GAP) << "¸¸Ç×"
+    cout << "â”Œ------â”¬---------------â”¬----------------â”¬-----------------â”¬----------------â”" << endl;
+    cout << "  å¹´é¾„\t"
+         << left << setw(GAP) << "å§“å"
+         << left << setw(GAP) << "ç”Ÿå¹´"
+         << left << setw(GAP) << "å’å¹´"
+         << left << setw(GAP) << "çˆ¶äº²"
          << endl;
     cout << " ------|---------------|----------------|-----------------|----------------" << endl;
 }
@@ -248,43 +248,43 @@ void Data::modify_name(Node *n) {
         cout << "Test Error: modify name error with nullptr!" << endl;
         exit(-1);
     }
-    cout << "Äã¼´½«ÐÞ¸Ä" << n->val.name << "µÄÐÕÃû£¬ÇëÊäÈëÐÞ¸ÄºóµÄÃû×Ö£º";
+    cout << "ä½ å³å°†ä¿®æ”¹" << n->val.name << "çš„å§“åï¼Œè¯·è¾“å…¥ä¿®æ”¹åŽçš„åå­—ï¼š";
     string new_name;
     cin >> new_name;
     clear_all();
 
     if (new_name == "None") {
         set_cout_RED();
-        cout << "·Ç·¨ÐÕÃû£º" << new_name << "£¬ÐÞ¸ÄÊ§°Ü£¡" << endl;
+        cout << "éžæ³•å§“åï¼š" << new_name << "ï¼Œä¿®æ”¹å¤±è´¥ï¼" << endl;
         reset_cout_color();
         return;
     }
 
     if (new_name == n->val.name) {
         set_cout_RED();
-        cout << "ÐÞ¸ÄÊ§°Ü£¬ÐÂÐÕÃû²»¿ÉÓëÔ­ÐÕÃûÏàÍ¬£¡" << endl;
+        cout << "ä¿®æ”¹å¤±è´¥ï¼Œæ–°å§“åä¸å¯ä¸ŽåŽŸå§“åç›¸åŒï¼" << endl;
         reset_cout_color();
         return;
     }
 
     if (n->nextCld) {
         set_cout_RED();
-        cout << "Çë×¢Òâ£¬ÓÉÓÚ" << n->val.name << "´æÔÚº¢×Ó£¬ÆäËùÓÐº¢×ÓµÄ¸¸Ç×Ãû×Ö½«Ò»²¢±»ÐÞ¸ÄÎª"
+        cout << "è¯·æ³¨æ„ï¼Œç”±äºŽ" << n->val.name << "å­˜åœ¨å­©å­ï¼Œå…¶æ‰€æœ‰å­©å­çš„çˆ¶äº²åå­—å°†ä¸€å¹¶è¢«ä¿®æ”¹ä¸º"
              << new_name << "!" << endl << endl;
         reset_cout_color();
     }
 
-    cout << "  ÐÞ¸Ä" << n->val.name << "µÄÐÕÃûÎª" << new_name << "³É¹¦£¡" << endl;
+    cout << "  ä¿®æ”¹" << n->val.name << "çš„å§“åä¸º" << new_name << "æˆåŠŸï¼" << endl;
     modify_single_name_to(n, new_name);
     n = n->nextCld;
     if (n)
-        cout << "Í¬Ê±£¬\n";
+        cout << "åŒæ—¶ï¼Œ\n";
     while (n) {
-        cout << "  ÒÑ½«";
+        cout << "  å·²å°†";
         set_cout_RED();
         cout << n->val.name;
         reset_cout_color();
-        cout << "µÄ¸¸Ç×ÐÞ¸ÄÎª" << new_name << "¡£" << endl;
+        cout << "çš„çˆ¶äº²ä¿®æ”¹ä¸º" << new_name << "ã€‚" << endl;
         modify_single_father_to(n, new_name);
         n = n->nextBro;
     }
@@ -299,7 +299,7 @@ void Data::modify_single_name_to(Node *node, string n_n) {
 
     if (n_n == "None") {
         set_cout_RED();
-        cout << "·Ç·¨ÐÕÃû£º" << n_n << "£¬Ìí¼ÓÊ§°Ü£¡" << endl;
+        cout << "éžæ³•å§“åï¼š" << n_n << "ï¼Œæ·»åŠ å¤±è´¥ï¼" << endl;
         reset_cout_color();
         return;
     }
@@ -320,7 +320,7 @@ void Data::modify_birth_year(Node *n) {
         cout << "Test Error: modify birth_year error with nullptr!" << endl;
         exit(-1);
     }
-    cout << "Äã¼´½«ÐÞ¸Ä" << n->val.name << "µÄ³öÉúÄê·Ý£¬ÇëÊäÈëÐÞ¸ÄºóµÄÄê·Ý";
+    cout << "ä½ å³å°†ä¿®æ”¹" << n->val.name << "çš„å‡ºç”Ÿå¹´ä»½ï¼Œè¯·è¾“å…¥ä¿®æ”¹åŽçš„å¹´ä»½";
 
     int min_birth_year = 0;
     int max_birth_year = n->val.death_year;
@@ -331,10 +331,10 @@ void Data::modify_birth_year(Node *n) {
         max_birth_year = min(hisFather->val.death_year, max_birth_year);
     }
 
-    // ¸ÃÈËÎïµÄ³öÉúÄê·ÝÐèÒªÂú×ã£º
-    // 1.±È¸¸Ç×µÄ³öÉúÄê·ÝÍí
-    // 2.±È¸¸Ç×µÄËÀÍöÄê·ÝÔç
-    // 3.±ÈÈÎÒ»¶ù×ÓµÄ³öÉúÄê·ÝÔç
+    // è¯¥äººç‰©çš„å‡ºç”Ÿå¹´ä»½éœ€è¦æ»¡è¶³ï¼š
+    // 1.æ¯”çˆ¶äº²çš„å‡ºç”Ÿå¹´ä»½æ™š
+    // 2.æ¯”çˆ¶äº²çš„æ­»äº¡å¹´ä»½æ—©
+    // 3.æ¯”ä»»ä¸€å„¿å­çš„å‡ºç”Ÿå¹´ä»½æ—©
 
     Node *Sons = n->nextCld;
 
@@ -349,13 +349,13 @@ void Data::modify_birth_year(Node *n) {
 
     if (new_birth == n->val.birth_year) {
         set_cout_RED();
-        cout << "ÐÞ¸ÄÊ§°Ü£¬ÐÂ³öÉúÄê·Ý²»¿ÉÓëÔ­³öÉúÄê·ÝÏàÍ¬£¡" << endl;
+        cout << "ä¿®æ”¹å¤±è´¥ï¼Œæ–°å‡ºç”Ÿå¹´ä»½ä¸å¯ä¸ŽåŽŸå‡ºç”Ÿå¹´ä»½ç›¸åŒï¼" << endl;
         reset_cout_color();
         return;
     }
 
     n->val.birth_year = new_birth;
-    cout << "ÐÞ¸Ä" << n->val.name << "µÄ³öÉúÄê·ÝÎª" << new_birth << "³É¹¦£¡" << endl;
+    cout << "ä¿®æ”¹" << n->val.name << "çš„å‡ºç”Ÿå¹´ä»½ä¸º" << new_birth << "æˆåŠŸï¼" << endl;
 }
 
 void Data::modify_death_year(Node *n) {
@@ -363,7 +363,7 @@ void Data::modify_death_year(Node *n) {
         cout << "Test Error: modify death_year error with nullptr!" << endl;
         exit(-1);
     }
-    cout << "Äã¼´½«ÐÞ¸Ä" << n->val.name << "µÄÈ¥ÊÀÄê·Ý£¬ÇëÊäÈëÐÞ¸ÄºóµÄÄê·Ý";
+    cout << "ä½ å³å°†ä¿®æ”¹" << n->val.name << "çš„åŽ»ä¸–å¹´ä»½ï¼Œè¯·è¾“å…¥ä¿®æ”¹åŽçš„å¹´ä»½";
 
     int min_death_year = n->val.birth_year;
 
@@ -379,13 +379,13 @@ void Data::modify_death_year(Node *n) {
 
     if (new_death == n->val.death_year) {
         set_cout_RED();
-        cout << "ÐÞ¸ÄÊ§°Ü£¬ÐÂÈ¥ÊÀÄê·Ý²»¿ÉÓëÔ­È¥ÊÀÄê·ÝÏàÍ¬£¡" << endl;
+        cout << "ä¿®æ”¹å¤±è´¥ï¼Œæ–°åŽ»ä¸–å¹´ä»½ä¸å¯ä¸ŽåŽŸåŽ»ä¸–å¹´ä»½ç›¸åŒï¼" << endl;
         reset_cout_color();
         return;
     }
 
     n->val.death_year = new_death;
-    cout << "ÐÞ¸Ä" << n->val.name << "µÄÈ¥ÊÀÄê·ÝÎª" << new_death << "³É¹¦£¡" << endl;
+    cout << "ä¿®æ”¹" << n->val.name << "çš„åŽ»ä¸–å¹´ä»½ä¸º" << new_death << "æˆåŠŸï¼" << endl;
 }
 
 void Data::modify_parent_only_when_without_BroORCld(Node *n) {
@@ -395,25 +395,25 @@ void Data::modify_parent_only_when_without_BroORCld(Node *n) {
     }
     if (n == head) {
         set_cout_RED();
-        cout << "ÎÞ·¨ÐÞ¸ÄµÚÒ»´úÈË" << n->val.name << "µÄ¸¸Ç×Ãû×Ö£¡" << endl;
+        cout << "æ— æ³•ä¿®æ”¹ç¬¬ä¸€ä»£äºº" << n->val.name << "çš„çˆ¶äº²åå­—ï¼" << endl;
         reset_cout_color();
         return;
     }
-    cout << "ÄãÕýÔÚÐÞ¸Ä" << n->val.name << "µÄ¸¸Ç×µÄÃû×Ö£¬ÇëÊäÈëÐÂµÄ¸¸Ç×µÄÐÕÃû£º";
+    cout << "ä½ æ­£åœ¨ä¿®æ”¹" << n->val.name << "çš„çˆ¶äº²çš„åå­—ï¼Œè¯·è¾“å…¥æ–°çš„çˆ¶äº²çš„å§“åï¼š";
     string new_parent;
     cin >> new_parent;
     clear_all();
 
     if (new_parent == n->val.parent) {
         set_cout_RED();
-        cout << "ÐÞ¸ÄÊ§°Ü£¬ÐÂ¸¸Ç×ÐÕÃû²»¿ÉÓëÔ­¸¸Ç×ÐÕÃûÏàÍ¬£¡" << endl;
+        cout << "ä¿®æ”¹å¤±è´¥ï¼Œæ–°çˆ¶äº²å§“åä¸å¯ä¸ŽåŽŸçˆ¶äº²å§“åç›¸åŒï¼" << endl;
         reset_cout_color();
         return;
     }
 
     if (!this->IsMemberExist(new_parent)) {
         set_cout_RED();
-        cout << "ÐÞ¸ÄÊ§°Ü£º" << new_parent << "²»´æÔÚ£¬ÇëÏÈÌí¼Ó¸ÃÈËÎï£¡" << endl;
+        cout << "ä¿®æ”¹å¤±è´¥ï¼š" << new_parent << "ä¸å­˜åœ¨ï¼Œè¯·å…ˆæ·»åŠ è¯¥äººç‰©ï¼" << endl;
         reset_cout_color();
         return;
     }
@@ -425,13 +425,13 @@ void Data::modify_parent_only_when_without_BroORCld(Node *n) {
     Node *parent_node_to_check_age = this->GetNode_byName(new_parent);
     if (_tmp_birth < parent_node_to_check_age->val.birth_year) {
         set_cout_RED();
-        cout << _tmp_name << "µÄ³öÉúÄê·ÝÔçÓÚ" << parent_node_to_check_age->val.name << "µÄ³öÉúÄê·Ý£¬ÐÞ¸ÄÊ§°Ü£¡" << endl;
+        cout << _tmp_name << "çš„å‡ºç”Ÿå¹´ä»½æ—©äºŽ" << parent_node_to_check_age->val.name << "çš„å‡ºç”Ÿå¹´ä»½ï¼Œä¿®æ”¹å¤±è´¥ï¼" << endl;
         reset_cout_color();
         return;
     }
     if (_tmp_birth > parent_node_to_check_age->val.death_year) {
         set_cout_RED();
-        cout << _tmp_name << "µÄ³öÉúÄê·ÝÍíÓÚ" << parent_node_to_check_age->val.name << "µÄÈ¥ÊÀÄê·Ý£¬ÐÞ¸ÄÊ§°Ü£¡" << endl;
+        cout << _tmp_name << "çš„å‡ºç”Ÿå¹´ä»½æ™šäºŽ" << parent_node_to_check_age->val.name << "çš„åŽ»ä¸–å¹´ä»½ï¼Œä¿®æ”¹å¤±è´¥ï¼" << endl;
         reset_cout_color();
         return;
     }
@@ -440,7 +440,7 @@ void Data::modify_parent_only_when_without_BroORCld(Node *n) {
 
     this->append_auto(_tmp_name, _tmp_birth, _tmp_death, new_parent);
 
-    cout << endl << "ÒÑ³É¹¦½«" << _tmp_name << "µÄ¸¸Ç×ÐÞ¸ÄÎª" << new_parent << "£¡" << endl;
+    cout << endl << "å·²æˆåŠŸå°†" << _tmp_name << "çš„çˆ¶äº²ä¿®æ”¹ä¸º" << new_parent << "ï¼" << endl;
 }
 
 void Data::modify_pare_with_lrNode(Node *n) {
@@ -451,25 +451,25 @@ void Data::modify_pare_with_lrNode(Node *n) {
 
     if (n == head) {
         set_cout_RED();
-        cout << "ÎÞ·¨ÐÞ¸ÄµÚÒ»´úÈË" << n->val.name << "µÄ¸¸Ç×Ãû×Ö£¡" << endl;
+        cout << "æ— æ³•ä¿®æ”¹ç¬¬ä¸€ä»£äºº" << n->val.name << "çš„çˆ¶äº²åå­—ï¼" << endl;
         reset_cout_color();
         return;
     }
-    cout << "ÄãÕýÔÚÐÞ¸Ä" << n->val.name << "µÄ¸¸Ç×µÄÃû×Ö£¬ÇëÊäÈëÐÂµÄ¸¸Ç×µÄÐÕÃû£º";
+    cout << "ä½ æ­£åœ¨ä¿®æ”¹" << n->val.name << "çš„çˆ¶äº²çš„åå­—ï¼Œè¯·è¾“å…¥æ–°çš„çˆ¶äº²çš„å§“åï¼š";
     string new_parent;
     cin >> new_parent;
     clear_all();
 
     if (new_parent == n->val.parent) {
         set_cout_RED();
-        cout << "ÐÞ¸ÄÊ§°Ü£¬ÐÂ¸¸Ç×ÐÕÃû²»¿ÉÓëÔ­¸¸Ç×ÐÕÃûÏàÍ¬£¡" << endl;
+        cout << "ä¿®æ”¹å¤±è´¥ï¼Œæ–°çˆ¶äº²å§“åä¸å¯ä¸ŽåŽŸçˆ¶äº²å§“åç›¸åŒï¼" << endl;
         reset_cout_color();
         return;
     }
 
     if (!this->IsMemberExist(new_parent)) {
         set_cout_RED();
-        cout << "ÐÞ¸ÄÊ§°Ü£º" << new_parent << "²»´æÔÚ£¬ÇëÏÈÌí¼Ó¸ÃÈËÎï£¡" << endl;
+        cout << "ä¿®æ”¹å¤±è´¥ï¼š" << new_parent << "ä¸å­˜åœ¨ï¼Œè¯·å…ˆæ·»åŠ è¯¥äººç‰©ï¼" << endl;
         reset_cout_color();
         return;
     }
@@ -480,20 +480,20 @@ void Data::modify_pare_with_lrNode(Node *n) {
     Node *parent_node_to_check_age = this->GetNode_byName(new_parent);
     if (_tmp_birth < parent_node_to_check_age->val.birth_year) {
         set_cout_RED();
-        cout << _tmp_name << "µÄ³öÉúÄê·ÝÔçÓÚ" << parent_node_to_check_age->val.name << "µÄ³öÉúÄê·Ý£¬ÐÞ¸ÄÊ§°Ü£¡" << endl;
+        cout << _tmp_name << "çš„å‡ºç”Ÿå¹´ä»½æ—©äºŽ" << parent_node_to_check_age->val.name << "çš„å‡ºç”Ÿå¹´ä»½ï¼Œä¿®æ”¹å¤±è´¥ï¼" << endl;
         reset_cout_color();
         return;
     }
     if (_tmp_birth > parent_node_to_check_age->val.death_year) {
         set_cout_RED();
-        cout << _tmp_name << "µÄ³öÉúÄê·ÝÍíÓÚ" << parent_node_to_check_age->val.name << "µÄÈ¥ÊÀÄê·Ý£¬ÐÞ¸ÄÊ§°Ü£¡" << endl;
+        cout << _tmp_name << "çš„å‡ºç”Ÿå¹´ä»½æ™šäºŽ" << parent_node_to_check_age->val.name << "çš„åŽ»ä¸–å¹´ä»½ï¼Œä¿®æ”¹å¤±è´¥ï¼" << endl;
         reset_cout_color();
         return;
     }
 
-    //ÒÔÏÂÎªÐÞ¸Ä²¿·Ö¡£
+    //ä»¥ä¸‹ä¸ºä¿®æ”¹éƒ¨åˆ†ã€‚
 
-    //¶ÀÁ¢¸Ã½Úµã
+    //ç‹¬ç«‹è¯¥èŠ‚ç‚¹
     Node *bef = this->GetNode_before_target(n->val.name);
     if (bef->nextBro == n) {
         bef->nextBro = n->nextBro;
@@ -510,7 +510,7 @@ void Data::modify_pare_with_lrNode(Node *n) {
 
     this->AddChild_toParent(new_parent, n);
 
-    cout << endl << "ÒÑ³É¹¦½«" << _tmp_name << "µÄ¸¸Ç×ÐÞ¸ÄÎª" << new_parent << "£¡" << endl;
+    cout << endl << "å·²æˆåŠŸå°†" << _tmp_name << "çš„çˆ¶äº²ä¿®æ”¹ä¸º" << new_parent << "ï¼" << endl;
 }
 
 void Data::delete_node_which_without_BroORCld(Node *n) {
@@ -536,13 +536,13 @@ void Data::delete_node_which_without_BroORCld(Node *n) {
 }
 
 void Data::query_by_name() {
-    cout << "ÇëÊäÈëÐèÒª²éÑ¯µÄÈËÎïÐÕÃû£º";
+    cout << "è¯·è¾“å…¥éœ€è¦æŸ¥è¯¢çš„äººç‰©å§“åï¼š";
     string q_name;
     cin >> q_name;
     clear_all();
     if (!this->IsMemberExist(q_name)) {
         set_cout_RED();
-        cout << "¸Ã³ÉÔ±²»´æÔÚ£¬²éÑ¯½áÊø£¡" << endl;
+        cout << "è¯¥æˆå‘˜ä¸å­˜åœ¨ï¼ŒæŸ¥è¯¢ç»“æŸï¼" << endl;
         reset_cout_color();
         return;
     }
@@ -551,7 +551,7 @@ void Data::query_by_name() {
         cout << "Test Error in func Data::query_by_name" << endl;
         exit(-1);
     }
-    cout << "\n²éÑ¯µ½ÐÅÏ¢ÈçÏÂ£º" << endl;
+    cout << "\næŸ¥è¯¢åˆ°ä¿¡æ¯å¦‚ä¸‹ï¼š" << endl;
 
     this->show_List_title_without_dynasty();
     this->show_List_of_single_member(q_tmp, false);
@@ -564,9 +564,9 @@ void Data::query_by_dynasty() {
         cout << "Test Error: unreachable place reached with Zero dynasty!" << endl;
         exit(-1);
     }
-    cout << "ÇëÊäÈëÐèÒª²éÑ¯µÚ¼¸´úµÄÈËÎï(1-" << max_dynasty << ")£º";
+    cout << "è¯·è¾“å…¥éœ€è¦æŸ¥è¯¢ç¬¬å‡ ä»£çš„äººç‰©(1-" << max_dynasty << ")ï¼š";
     int search_dynasty = GetIndex(1, max_dynasty, 0);
-    cout << "²éÑ¯µ½ÐÅÏ¢ÈçÏÂ£º" << endl;
+    cout << "æŸ¥è¯¢åˆ°ä¿¡æ¯å¦‚ä¸‹ï¼š" << endl;
     this->show_special_dynasty_byLsit(search_dynasty);
 }
 
@@ -620,14 +620,14 @@ void Data::show_special_dynasty_byLsit(int target) {
 }
 
 void Data::query_someone_s_child() {
-    cout << "ÇëÊäÈëÐèÒª²éÑ¯ÈËÎïµÄ¸¸Ç×ÐÕÃû£º";
+    cout << "è¯·è¾“å…¥éœ€è¦æŸ¥è¯¢äººç‰©çš„çˆ¶äº²å§“åï¼š";
     string q_pare;
     cin >> q_pare;
     clear_all();
 
     if (!this->IsMemberExist(q_pare)) {
         set_cout_RED();
-        cout << q_pare << "²»´æÔÚ£¬²éÑ¯Ê§°Ü£¡" << endl;
+        cout << q_pare << "ä¸å­˜åœ¨ï¼ŒæŸ¥è¯¢å¤±è´¥ï¼" << endl;
         reset_cout_color();
         return;
     }
@@ -636,13 +636,13 @@ void Data::query_someone_s_child() {
 
     if (!pare_node->nextCld) {
         set_cout_RED();
-        cout << "²éÑ¯µ½" << q_pare << "ÎÞÈÎºÎº¢×Ó£¡" << endl << endl;
+        cout << "æŸ¥è¯¢åˆ°" << q_pare << "æ— ä»»ä½•å­©å­ï¼" << endl << endl;
         reset_cout_color();
-        cout << "²éÑ¯½áÊø£¡" << endl;
+        cout << "æŸ¥è¯¢ç»“æŸï¼" << endl;
         return;
     }
 
-    cout << "²éÑ¯µ½" << q_pare << "µÄËùÓÐº¢×ÓÐÅÏ¢ÈçÏÂ£º" << endl;
+    cout << "æŸ¥è¯¢åˆ°" << q_pare << "çš„æ‰€æœ‰å­©å­ä¿¡æ¯å¦‚ä¸‹ï¼š" << endl;
     this->show_List_title_without_dynasty();
     Node *child_node = pare_node->nextCld;
     while (child_node) {
@@ -653,14 +653,14 @@ void Data::query_someone_s_child() {
 }
 
 void Data::query_someone_s_father() {
-    cout << "ÇëÊäÈëÐèÒª²éÑ¯ÈËÎïµÄº¢×ÓÐÕÃû£º";
+    cout << "è¯·è¾“å…¥éœ€è¦æŸ¥è¯¢äººç‰©çš„å­©å­å§“åï¼š";
     string q_child;
     cin >> q_child;
     clear_all();
 
     if (!this->IsMemberExist(q_child)) {
         set_cout_RED();
-        cout << q_child << "²»´æÔÚ£¬²éÑ¯Ê§°Ü£¡" << endl;
+        cout << q_child << "ä¸å­˜åœ¨ï¼ŒæŸ¥è¯¢å¤±è´¥ï¼" << endl;
         reset_cout_color();
         return;
     }
@@ -669,13 +669,13 @@ void Data::query_someone_s_father() {
 
     if (child_node->val.parent == "None") {
         set_cout_RED();
-        cout << "²éÑ¯µ½" << q_child << "²»´æÔÚ¸¸Ç×µÄÐÅÏ¢£¡" << endl << endl;
+        cout << "æŸ¥è¯¢åˆ°" << q_child << "ä¸å­˜åœ¨çˆ¶äº²çš„ä¿¡æ¯ï¼" << endl << endl;
         reset_cout_color();
-        cout << "²éÑ¯½áÊø£¡" << endl;
+        cout << "æŸ¥è¯¢ç»“æŸï¼" << endl;
         return;
     }
 
-    cout << "²éÑ¯µ½" << q_child << "µÄ¸¸Ç×ÐÅÏ¢ÈçÏÂ£º" << endl;
+    cout << "æŸ¥è¯¢åˆ°" << q_child << "çš„çˆ¶äº²ä¿¡æ¯å¦‚ä¸‹ï¼š" << endl;
 
     Node *pare_node = this->GetNode_byName(child_node->val.parent);
 
@@ -686,14 +686,14 @@ void Data::query_someone_s_father() {
 }
 
 void Data::query_someone_s_brother() {
-    cout << "ÇëÊäÈëÐèÒª²éÑ¯ÈËÎïµÄÐÖµÜÐÕÃû£º";
+    cout << "è¯·è¾“å…¥éœ€è¦æŸ¥è¯¢äººç‰©çš„å…„å¼Ÿå§“åï¼š";
     string q_bro;
     cin >> q_bro;
     clear_all();
 
     if (!IsMemberExist(q_bro)) {
         set_cout_RED();
-        cout << q_bro << "²»´æÔÚ£¬²éÑ¯Ê§°Ü£¡" << endl;
+        cout << q_bro << "ä¸å­˜åœ¨ï¼ŒæŸ¥è¯¢å¤±è´¥ï¼" << endl;
         reset_cout_color();
         return;
     }
@@ -702,23 +702,23 @@ void Data::query_someone_s_brother() {
 
     if (q_bro_node->val.parent == "None") {
         set_cout_RED();
-        cout << "²éÑ¯µ½" << q_bro << "ÎÞÐÖµÜÐÅÏ¢!" << endl << endl;
+        cout << "æŸ¥è¯¢åˆ°" << q_bro << "æ— å…„å¼Ÿä¿¡æ¯!" << endl << endl;
         reset_cout_color();
-        cout << "²éÑ¯½áÊø£¡" << endl;
+        cout << "æŸ¥è¯¢ç»“æŸï¼" << endl;
         return;
     }
 
     Node *q_pare = this->GetNode_byName(q_bro_node->val.parent);
     if (q_pare->nextCld->val.name == q_bro and !q_pare->nextCld->nextBro) {
         set_cout_RED();
-        cout << "²éÑ¯µ½" << q_bro << "Îª" << q_pare->val.name << "µÄ¶ÀÉú×Ó£¬ÎÞÐÖµÜÐÅÏ¢!" << endl << endl;
+        cout << "æŸ¥è¯¢åˆ°" << q_bro << "ä¸º" << q_pare->val.name << "çš„ç‹¬ç”Ÿå­ï¼Œæ— å…„å¼Ÿä¿¡æ¯!" << endl << endl;
         reset_cout_color();
-        cout << "²éÑ¯½áÊø£¡" << endl;
+        cout << "æŸ¥è¯¢ç»“æŸï¼" << endl;
         return;
     }
 
     Node *q_cld = q_pare->nextCld;
-    cout << "²éÑ¯µ½" << q_bro << "µÄÐÖµÜÐÅÏ¢ÈçÏÂ£º" << endl;
+    cout << "æŸ¥è¯¢åˆ°" << q_bro << "çš„å…„å¼Ÿä¿¡æ¯å¦‚ä¸‹ï¼š" << endl;
 
     this->show_List_title_without_dynasty();
     while (q_cld) {
@@ -731,13 +731,13 @@ void Data::query_someone_s_brother() {
 }
 
 void Data::Show() {
-    cout << "©°-------------------------------------------©´" << endl;
-    cout << "\t¼Ò×åÆ×Õ¹Ê¾ÏµÍ³" << endl;
-    cout << "   1.°´Í¼ÐÎÕ¹Ê¾" << endl;
-    cout << "   2.°´ÁÐ±íÕ¹Ê¾" << endl;
-    cout << "   3.·µ»ØÉÏÒ»¼¶" << endl;
-    cout << "©¸-------------------------------------------©¼" << endl;
-    cout << "ÇëÊäÈë²Ù×÷ÐòºÅ£º";
+    cout << "â”Œ-------------------------------------------â”" << endl;
+    cout << "\tå®¶æ—è°±å±•ç¤ºç³»ç»Ÿ" << endl;
+    cout << "   1.æŒ‰å›¾å½¢å±•ç¤º" << endl;
+    cout << "   2.æŒ‰åˆ—è¡¨å±•ç¤º" << endl;
+    cout << "   3.è¿”å›žä¸Šä¸€çº§" << endl;
+    cout << "â””-------------------------------------------â”˜" << endl;
+    cout << "è¯·è¾“å…¥æ“ä½œåºå·ï¼š";
 
     int show_idx = GetIndex(1, 3, 0);
 
@@ -761,37 +761,37 @@ void Data::Show() {
 }
 
 void Data::EXIT() {
-    cout << "©°-------------------------------------------©´" << endl;
-    cout << "  ¼´½«ÍË³öÏµÍ³£¬ÇëÈ·ÈÏÊÇ·ñ±£´æËùÓÐµÄÐÞ¸Ä£¿" << endl;
+    cout << "â”Œ-------------------------------------------â”" << endl;
+    cout << "  å³å°†é€€å‡ºç³»ç»Ÿï¼Œè¯·ç¡®è®¤æ˜¯å¦ä¿å­˜æ‰€æœ‰çš„ä¿®æ”¹ï¼Ÿ" << endl;
     set_cout_GREEN();
-    cout << "   1.±£´æÐÞ¸ÄÄÚÈÝ£¬²¢ÍË³ö" << endl;
+    cout << "   1.ä¿å­˜ä¿®æ”¹å†…å®¹ï¼Œå¹¶é€€å‡º" << endl;
     set_cout_RED();
-    cout << "   2.ÉáÆúËùÓÐÐÞ¸Ä£¬Ö±½ÓÍË³ö" << endl;
+    cout << "   2.èˆå¼ƒæ‰€æœ‰ä¿®æ”¹ï¼Œç›´æŽ¥é€€å‡º" << endl;
     reset_cout_color();
-    cout << "©¸-------------------------------------------©¼" << endl;
-    cout << "ÇëÊäÈëÄãµÄÑ¡Ôñ£º";
+    cout << "â””-------------------------------------------â”˜" << endl;
+    cout << "è¯·è¾“å…¥ä½ çš„é€‰æ‹©ï¼š";
     int handle = GetIndex(1, 2, 0);
 
     system("cls");
     if (handle == 1) {
         this->save_all();
-        cout << "±£´æ³É¹¦£¡ÏµÍ³ÒÑÍË³ö¡£" << endl;
+        cout << "ä¿å­˜æˆåŠŸï¼ç³»ç»Ÿå·²é€€å‡ºã€‚" << endl;
     } else if (handle == 2) {
-        cout << "ÐÞ¸ÄÒÑÉáÆú£¡ÏµÍ³ÒÑÍË³ö" << endl;
+        cout << "ä¿®æ”¹å·²èˆå¼ƒï¼ç³»ç»Ÿå·²é€€å‡º" << endl;
     }
 
     this->delete_memory_before_exit(head);
 }
 
 void Data::Manage() {
-    cout << "©°-------------------------------------------©´" << endl;
-    cout << "\tÐÅÏ¢ÐÞ¸ÄÏµÍ³" << endl;
-    cout << "   1.Ìí¼Ó³ÉÔ±" << endl;
-    cout << "   2.ÐÞ¸Ä³ÉÔ±ÐÅÏ¢" << endl;
-    cout << "   3.É¾³ý³ÉÔ±" << endl;
-    cout << "   4.·µ»ØÉÏÒ»¼¶" << endl;
-    cout << "©¸-------------------------------------------©¼" << endl;
-    cout << "ÇëÊäÈë²Ù×÷ÐòºÅ£º";
+    cout << "â”Œ-------------------------------------------â”" << endl;
+    cout << "\tä¿¡æ¯ä¿®æ”¹ç³»ç»Ÿ" << endl;
+    cout << "   1.æ·»åŠ æˆå‘˜" << endl;
+    cout << "   2.ä¿®æ”¹æˆå‘˜ä¿¡æ¯" << endl;
+    cout << "   3.åˆ é™¤æˆå‘˜" << endl;
+    cout << "   4.è¿”å›žä¸Šä¸€çº§" << endl;
+    cout << "â””-------------------------------------------â”˜" << endl;
+    cout << "è¯·è¾“å…¥æ“ä½œåºå·ï¼š";
 
     int manage_idx = GetIndex(1, 4, 0);
 
@@ -860,10 +860,10 @@ void Data::save_all() {
 }
 
 void Data::query_get_average_age() {
-    cout << "ÇëÊäÈë0ÖÁ" << MAX_AGE << "ÖÐµÄÒ»¶ÎÄêÁä·¶Î§" << endl;
-    cout << "ÇëÊäÈë×îÐ¡ÄêÁä£º";
+    cout << "è¯·è¾“å…¥0è‡³" << MAX_AGE << "ä¸­çš„ä¸€æ®µå¹´é¾„èŒƒå›´" << endl;
+    cout << "è¯·è¾“å…¥æœ€å°å¹´é¾„ï¼š";
     int min_age = GetIndex(0, MAX_AGE, 0);
-    cout << "ÇëÊäÈë×î´óÄêÁä£º";
+    cout << "è¯·è¾“å…¥æœ€å¤§å¹´é¾„ï¼š";
     int max_age = GetIndex(min_age, MAX_AGE, 0);
     this->cout_and_show_average_age(min_age, max_age);
 }
@@ -892,12 +892,12 @@ void Data::cout_and_show_average_age(int fro, int to) {
 
     if (cnt == 0) {
         set_cout_RED();
-        cout << "Î´²éÑ¯µ½ÄêÁä¶ÎÔÚ" << fro << "ÖÁ" << to << "µÄÈËÔ±£¡" << endl;
+        cout << "æœªæŸ¥è¯¢åˆ°å¹´é¾„æ®µåœ¨" << fro << "è‡³" << to << "çš„äººå‘˜ï¼" << endl;
         reset_cout_color();
         return;
     }
 
-    cout << endl << "²éÑ¯µ½ÄêÁä¶ÎÔÚ" << fro << "ÖÁ" << to << "µÄÈËÔ±" << cnt << "Î»£¬ÈçÏÂ£º" << endl;
+    cout << endl << "æŸ¥è¯¢åˆ°å¹´é¾„æ®µåœ¨" << fro << "è‡³" << to << "çš„äººå‘˜" << cnt << "ä½ï¼Œå¦‚ä¸‹ï¼š" << endl;
 
     int sum_age = 0;
 
@@ -925,7 +925,7 @@ void Data::cout_and_show_average_age(int fro, int to) {
 
     double ave_age = (sum_age * 1.0) / cnt;
 
-    cout << "ËûÃÇµÄÆ½¾ùÄêÁäÎª" << ave_age << endl << endl;
+    cout << "ä»–ä»¬çš„å¹³å‡å¹´é¾„ä¸º" << ave_age << endl << endl;
 }
 
 void Data::init() {
@@ -946,8 +946,8 @@ void Data::init() {
     if (ss.str().empty()) {
         f.close();
         set_cout_RED();
-        cout << "Çë×¢Òâ£¡µ±Ç°Genghis Khan.txtÎÄ¼þÖÐ²»´æÔÚÈÎºÎ³ÉÔ±ÐÅÏ¢£¡" << endl;
-        cout << "ÇëÈ·ÈÏºó½øÈë¼Ò×å¹ÜÀíÏµÍ³£¡" << endl;
+        cout << "è¯·æ³¨æ„ï¼å½“å‰Genghis Khan.txtæ–‡ä»¶ä¸­ä¸å­˜åœ¨ä»»ä½•æˆå‘˜ä¿¡æ¯ï¼" << endl;
+        cout << "è¯·ç¡®è®¤åŽè¿›å…¥å®¶æ—ç®¡ç†ç³»ç»Ÿï¼" << endl;
         reset_cout_color();
         system("pause");
         return;
@@ -966,11 +966,11 @@ void Data::init() {
 }
 
 void Data::show_byList() {
-    cout << "  °´ÁÐ±íÕ¹Ê¾ÈçÏÂ£º" << endl;
+    cout << "  æŒ‰åˆ—è¡¨å±•ç¤ºå¦‚ä¸‹ï¼š" << endl;
     if (head == nullptr) {
-        cout << "©°----------------------------------------------------------©´" << endl;
-        cout << "  ÎÞ³ÉÔ±ÐÅÏ¢£¡" << endl;
-        cout << "©¸----------------------------------------------------------©¼" << endl;
+        cout << "â”Œ----------------------------------------------------------â”" << endl;
+        cout << "  æ— æˆå‘˜ä¿¡æ¯ï¼" << endl;
+        cout << "â””----------------------------------------------------------â”˜" << endl;
         return;
     }
     this->show_List_title();
@@ -995,11 +995,11 @@ void Data::show_byList() {
 }
 
 void Data::show_byGraph() {
-    cout << "  °´Í¼ÐÎÕ¹Ê¾ÈçÏÂ£º" << endl;
-    cout << "©°----------------------------------------------------------©´" << endl;
+    cout << "  æŒ‰å›¾å½¢å±•ç¤ºå¦‚ä¸‹ï¼š" << endl;
+    cout << "â”Œ----------------------------------------------------------â”" << endl;
     if (head == nullptr) {
-        cout << "  ÎÞ³ÉÔ±ÐÅÏ¢£¡" << endl;
-        cout << "©¸----------------------------------------------------------©¼" << endl;
+        cout << "  æ— æˆå‘˜ä¿¡æ¯ï¼" << endl;
+        cout << "â””----------------------------------------------------------â”˜" << endl;
         return;
     }
     Stack stack;
@@ -1008,7 +1008,7 @@ void Data::show_byGraph() {
     while (!stack.IsEmpty()) {
         tmp = stack.pop();
         while (tmp) {
-            cout << "  µÚ" << tmp->Generation_used_ONLY_in_Stack << "´ú\t";
+            cout << "  ç¬¬" << tmp->Generation_used_ONLY_in_Stack << "ä»£\t";
             int mask = stack.GetIndexExistInStack_byBitmap();
 
             bool isLastBro;
@@ -1021,9 +1021,9 @@ void Data::show_byGraph() {
             while (tmp != head && mask) {
                 if (mask == 1) {
                     if (isLastBro)
-                        cout << "©¸-->";
+                        cout << "â””-->";
                     else
-                        cout << "©À-->";
+                        cout << "â”œ-->";
                 } else {
                     if (mask & 1)
                         cout << "|";
@@ -1047,7 +1047,7 @@ void Data::show_byGraph() {
             tmp = tmp->nextCld;
         }
     }
-    cout << "©¸----------------------------------------------------------©¼" << endl;
+    cout << "â””----------------------------------------------------------â”˜" << endl;
 }
 
 void Data::add_member() {
@@ -1056,28 +1056,28 @@ void Data::add_member() {
 
     if (head == nullptr) {
         set_cout_RED();
-        cout << "µ±Ç°×åÆ×ÖÐÎÞÈËÔ±´æÔÚ";
+        cout << "å½“å‰æ—è°±ä¸­æ— äººå‘˜å­˜åœ¨";
         reset_cout_color();
-        cout << "£¬ÇëÊäÈëÄãÐèÒªÌí¼ÓµÄÈËÔ±µÄÐÕÃû£º";
+        cout << "ï¼Œè¯·è¾“å…¥ä½ éœ€è¦æ·»åŠ çš„äººå‘˜çš„å§“åï¼š";
         cin >> _name;
-        cout << "ÇëÊäÈë" << _name << "µÄ³öÉúÄê·Ý£º";
+        cout << "è¯·è¾“å…¥" << _name << "çš„å‡ºç”Ÿå¹´ä»½ï¼š";
         _birth_year = GetIndex(0, INF_YEAR, 1);
-        cout << "ÇëÊäÈë" << _name << "µÄÈ¥ÊÀÄê·Ý£º";
+        cout << "è¯·è¾“å…¥" << _name << "çš„åŽ»ä¸–å¹´ä»½ï¼š";
         _death_year = GetIndex(_birth_year, INF_YEAR, 1);
         this->append_auto(_name, _birth_year, _death_year, "None");
-        cout << "³ÉÔ±" << _name << "Ìí¼Ó³É¹¦£¡" << endl;
+        cout << "æˆå‘˜" << _name << "æ·»åŠ æˆåŠŸï¼" << endl;
         return;
     }
     bool is_parent_exist;
     string _pare;
     do {
-        cout << "ÇëÊäÈëÄãËùÐèÒªÌí¼ÓµÄ³ÉÔ±µÄ¸¸Ç×ÐÕÃû£º";
+        cout << "è¯·è¾“å…¥ä½ æ‰€éœ€è¦æ·»åŠ çš„æˆå‘˜çš„çˆ¶äº²å§“åï¼š";
         cin >> _pare;
         clear_all();
         is_parent_exist = IsMemberExist(_pare);
         if (!is_parent_exist) {
             set_cout_RED();
-            cout << "¸¸Ç×" << _pare << "²»´æÔÚ£¬ÇëÖØÐÂÊäÈë£¡" << endl;
+            cout << "çˆ¶äº²" << _pare << "ä¸å­˜åœ¨ï¼Œè¯·é‡æ–°è¾“å…¥ï¼" << endl;
             reset_cout_color();
         }
     } while (!is_parent_exist);
@@ -1086,17 +1086,17 @@ void Data::add_member() {
 
     bool is_name_suitable;
     do {
-        cout << "ÇëÊäÈë¸Ã³ÉÔ±µÄÃû×Ö£º";
+        cout << "è¯·è¾“å…¥è¯¥æˆå‘˜çš„åå­—ï¼š";
         cin >> _name;
         if (_name == _pare) {
             is_name_suitable = false;
             set_cout_RED();
-            cout << "³ÉÔ±ÐÕÃû²»ÄÜÓë¸¸Ç×ÐÕÃûÏàÍ¬£¡ÇëÖØÐÂÊäÈë£¡" << endl;
+            cout << "æˆå‘˜å§“åä¸èƒ½ä¸Žçˆ¶äº²å§“åç›¸åŒï¼è¯·é‡æ–°è¾“å…¥ï¼" << endl;
             reset_cout_color();
         } else if (this->IsMemberExist(_name)) {
             is_name_suitable = false;
             set_cout_RED();
-            cout << "¸Ã³ÉÔ±ÃûÒÑ´æÔÚ£¡ÇëÖØÐÂÊäÈë£¡" << endl;
+            cout << "è¯¥æˆå‘˜åå·²å­˜åœ¨ï¼è¯·é‡æ–°è¾“å…¥ï¼" << endl;
             reset_cout_color();
         } else {
             is_name_suitable = true;
@@ -1105,23 +1105,23 @@ void Data::add_member() {
 
     clear_all();
 
-    cout << "ÇëÊäÈë" << _name << "µÄ³öÉúÄê·Ý£º";
+    cout << "è¯·è¾“å…¥" << _name << "çš„å‡ºç”Ÿå¹´ä»½ï¼š";
     _birth_year = GetIndex(parent_node->val.birth_year, parent_node->val.death_year, 1);
-    cout << "ÇëÊäÈë" << _name << "µÄÈ¥ÊÀÄê·Ý£º";
+    cout << "è¯·è¾“å…¥" << _name << "çš„åŽ»ä¸–å¹´ä»½ï¼š";
     _death_year = GetIndex(_birth_year, INF_YEAR, 1);
 
     this->append_auto(_name, _birth_year, _death_year, _pare);
-    cout << "³ÉÔ±" << _name << "Ìí¼Ó³É¹¦£¡" << endl;
+    cout << "æˆå‘˜" << _name << "æ·»åŠ æˆåŠŸï¼" << endl;
 }
 
 void Data::del_member() {
     string _name;
-    cout << "ÇëÊäÈëÐèÒªÉ¾³ýµÄ³ÉÔ±µÄÐÕÃû£º";
+    cout << "è¯·è¾“å…¥éœ€è¦åˆ é™¤çš„æˆå‘˜çš„å§“åï¼š";
     cin >> _name;
     clear_all();
     if (!this->IsMemberExist(_name)) {
         set_cout_RED();
-        cout << "³ÉÔ±" << _name << "²»´æÔÚ£¬É¾³ýÊ§°Ü£¡" << endl;
+        cout << "æˆå‘˜" << _name << "ä¸å­˜åœ¨ï¼Œåˆ é™¤å¤±è´¥ï¼" << endl;
         reset_cout_color();
         return;
     }
@@ -1129,18 +1129,18 @@ void Data::del_member() {
 
     Node *the_node_before_to_del = this->GetNode_before_target(_name);
 
-    //ÓÉÓÚ_nameÒ»¶¨´æÔÚ£¬¸ÃÖ¸ÕëÎª¿ÕÊ±±íÊ¾ÒªÇóÉ¾³ýµÄÎªÍ·½áµã¡£
+    //ç”±äºŽ_nameä¸€å®šå­˜åœ¨ï¼Œè¯¥æŒ‡é’ˆä¸ºç©ºæ—¶è¡¨ç¤ºè¦æ±‚åˆ é™¤çš„ä¸ºå¤´ç»“ç‚¹ã€‚
     if (!the_node_before_to_del) {
         if (!to_del->nextBro && !to_del->nextCld) {
             head = nullptr;
-            cout << to_del->val.name << "É¾³ýÍê³É£¡" << endl;
+            cout << to_del->val.name << "åˆ é™¤å®Œæˆï¼" << endl;
             delete to_del;
             return;
-        } else if (!to_del->nextBro) { // Ã»ÓÐÐÖµÜ£¬Ö»ÓÐº¢×Ó¡£
+        } else if (!to_del->nextBro) { // æ²¡æœ‰å…„å¼Ÿï¼Œåªæœ‰å­©å­ã€‚
             head = nullptr;
-        } else if (!to_del->nextCld) {   // Ö»ÓÐÐÖµÜ£¬Ã»ÓÐº¢×Ó¡£
+        } else if (!to_del->nextCld) {   // åªæœ‰å…„å¼Ÿï¼Œæ²¡æœ‰å­©å­ã€‚
             head = to_del->nextBro;
-            cout << to_del->val.name << "É¾³ýÍê³É£¡" << endl;
+            cout << to_del->val.name << "åˆ é™¤å®Œæˆï¼" << endl;
             delete to_del;
             return;
         } else {
@@ -1148,30 +1148,30 @@ void Data::del_member() {
             to_del->nextBro = nullptr;
         }
     } else {
-        //ÎªTrue±íÊ¾Ç°ÖÃ½ÚµãµÄnextBroÎª´ýÉ¾½Úµã£¬False±íÊ¾Ç°ÖÃµÄnextCldÎª´ýÉ¾½Úµã¡£
+        //ä¸ºTrueè¡¨ç¤ºå‰ç½®èŠ‚ç‚¹çš„nextBroä¸ºå¾…åˆ èŠ‚ç‚¹ï¼ŒFalseè¡¨ç¤ºå‰ç½®çš„nextCldä¸ºå¾…åˆ èŠ‚ç‚¹ã€‚
         bool bro_or_child = the_node_before_to_del->nextBro == to_del;
 
-        // ´ýÉ¾³ýµÄ½ÚµãÎÞºó×º½Úµã£¬ÄÇÃ´ÎÒÃÇÖ®¼ä½«ÆäÇ°Ò»¸ö½ÚµãÖÃ¿Õ£¬È»ºóÉ¾³ý¸Ã½Úµã¼´¿É¡£
+        // å¾…åˆ é™¤çš„èŠ‚ç‚¹æ— åŽç¼€èŠ‚ç‚¹ï¼Œé‚£ä¹ˆæˆ‘ä»¬ä¹‹é—´å°†å…¶å‰ä¸€ä¸ªèŠ‚ç‚¹ç½®ç©ºï¼Œç„¶åŽåˆ é™¤è¯¥èŠ‚ç‚¹å³å¯ã€‚
         if (!to_del->nextBro && !to_del->nextCld) {
             if (bro_or_child)
                 the_node_before_to_del->nextBro = nullptr;
             else
                 the_node_before_to_del->nextCld = nullptr;
-            cout << to_del->val.name << "É¾³ýÍê³É£¡" << endl;
+            cout << to_del->val.name << "åˆ é™¤å®Œæˆï¼" << endl;
             delete to_del;
             return;
-        } else if (!to_del->nextBro) {  // Ã»ÓÐÐÖµÜ£¬Ö»ÓÐº¢×Ó
+        } else if (!to_del->nextBro) {  // æ²¡æœ‰å…„å¼Ÿï¼Œåªæœ‰å­©å­
             if (bro_or_child)
                 the_node_before_to_del->nextBro = nullptr;
             else
                 the_node_before_to_del->nextCld = nullptr;
-        } else if (!to_del->nextCld) {    // Ö»ÓÐÐÖµÜ£¬Ã»ÓÐº¢×Ó¡£
+        } else if (!to_del->nextCld) {    // åªæœ‰å…„å¼Ÿï¼Œæ²¡æœ‰å­©å­ã€‚
             if (bro_or_child)
                 the_node_before_to_del->nextBro = to_del->nextBro;
             else
                 the_node_before_to_del->nextCld = to_del->nextBro;
             to_del->nextBro = nullptr;
-            cout << to_del->val.name << "É¾³ýÍê³É£¡" << endl;
+            cout << to_del->val.name << "åˆ é™¤å®Œæˆï¼" << endl;
             delete to_del;
             return;
         } else {
@@ -1183,10 +1183,10 @@ void Data::del_member() {
         }
     }
 
-    //ÔÚ´ËÊ±»¹Î´return£¬Ôò±íÊ¾to_delÈÔÓÐº¢×ÓÐèÒªÒ»²¢É¾³ý¡£
-    //Êµ¼ÊÉÏ´ËÊ±É¾³ý²Ù×÷ÒÑÍê³É£¬to_delÎªÒ»¸ö¶ÀÁ¢µÄhead¡£´ËÊ±to_delµÄnextBroÎª¿Õ£¬nextCldÓÐ½Úµã¡£
+    //åœ¨æ­¤æ—¶è¿˜æœªreturnï¼Œåˆ™è¡¨ç¤ºto_delä»æœ‰å­©å­éœ€è¦ä¸€å¹¶åˆ é™¤ã€‚
+    //å®žé™…ä¸Šæ­¤æ—¶åˆ é™¤æ“ä½œå·²å®Œæˆï¼Œto_delä¸ºä¸€ä¸ªç‹¬ç«‹çš„headã€‚æ­¤æ—¶to_delçš„nextBroä¸ºç©ºï¼ŒnextCldæœ‰èŠ‚ç‚¹ã€‚
     set_cout_RED();
-    cout << endl << "Çë×¢Òâ£º¸Ã³ÉÔ±ÓÐº¢×Ó¡£ÔÚÉ¾³ýºó£¬ÈçÏÂËùÊ¾µÄËùÓÐ³ÉÔ±½«±»Ò»²¢É¾³ý£¡" << endl;
+    cout << endl << "è¯·æ³¨æ„ï¼šè¯¥æˆå‘˜æœ‰å­©å­ã€‚åœ¨åˆ é™¤åŽï¼Œå¦‚ä¸‹æ‰€ç¤ºçš„æ‰€æœ‰æˆå‘˜å°†è¢«ä¸€å¹¶åˆ é™¤ï¼" << endl;
     reset_cout_color();
 
     string name_backup = to_del->val.name;
@@ -1194,32 +1194,32 @@ void Data::del_member() {
     set_cout_RED();
     this->del_nodes_after_the_node_given(to_del, true);
     reset_cout_color();
-    cout << endl << name_backup << "¼°Æäº¢×ÓµÄÐÅÏ¢É¾³ýÍê³É£¡" << endl << endl;
+    cout << endl << name_backup << "åŠå…¶å­©å­çš„ä¿¡æ¯åˆ é™¤å®Œæˆï¼" << endl << endl;
 }
 
 void Data::modify() {
     string _name;
-    cout << "ÇëÊäÈëÐèÒªÐÞ¸ÄµÄ³ÉÔ±µÄÐÕÃû£º";
+    cout << "è¯·è¾“å…¥éœ€è¦ä¿®æ”¹çš„æˆå‘˜çš„å§“åï¼š";
     cin >> _name;
     clear_all();
 
     if (!this->IsMemberExist(_name)) {
         set_cout_RED();
-        cout << "³ÉÔ±" << _name << "²»´æÔÚ£¬²Ù×÷Ê§°Ü£¡" << endl;
+        cout << "æˆå‘˜" << _name << "ä¸å­˜åœ¨ï¼Œæ“ä½œå¤±è´¥ï¼" << endl;
         reset_cout_color();
         return;
     }
     Node *to_modify = this->GetNode_byName(_name);
 
-    cout << "©°-------------------------------------------©´" << endl;
-    cout << "\tÐÞ¸Ä³ÉÔ±ÐÅÏ¢Ñ¡Ôñ" << endl;
-    cout << "   1.ÐÕÃû" << endl;
-    cout << "   2.³öÉúÄê·Ý" << endl;
-    cout << "   3.È¥ÊÀÄê·Ý" << endl;
+    cout << "â”Œ-------------------------------------------â”" << endl;
+    cout << "\tä¿®æ”¹æˆå‘˜ä¿¡æ¯é€‰æ‹©" << endl;
+    cout << "   1.å§“å" << endl;
+    cout << "   2.å‡ºç”Ÿå¹´ä»½" << endl;
+    cout << "   3.åŽ»ä¸–å¹´ä»½" << endl;
 //    if (CanModifyParent)
-    cout << "   4.¸¸Ç×ÐÕÃû" << endl;
-    cout << "©¸-------------------------------------------©¼" << endl;
-    cout << "ÇëÊäÈëÐèÒªÐÞ¸ÄµÄÄÚÈÝ£º";
+    cout << "   4.çˆ¶äº²å§“å" << endl;
+    cout << "â””-------------------------------------------â”˜" << endl;
+    cout << "è¯·è¾“å…¥éœ€è¦ä¿®æ”¹çš„å†…å®¹ï¼š";
 
     int operation_idx = GetIndex(1, 4, 0);
 
@@ -1250,22 +1250,22 @@ void Data::modify() {
 void Data::query() {
     if (!this->head) {
         set_cout_RED();
-        cout << "×åÆ×ÖÐÎÞ³ÉÔ±£¬ÎÞ·¨²éÑ¯£¡" << endl << endl;
+        cout << "æ—è°±ä¸­æ— æˆå‘˜ï¼Œæ— æ³•æŸ¥è¯¢ï¼" << endl << endl;
         reset_cout_color();
         system("pause");
         return;
     }
-    cout << "©°-------------------------------------------©´" << endl;
-    cout << "\t²éÑ¯ÏµÍ³" << endl;
-    cout << "   1.°´ÐÕÃû²éÕÒÌØ¶¨ÈËÎï" << endl;
-    cout << "   2.²éÑ¯Ä³´úµÄËùÓÐÈËÎï" << endl;
-    cout << "   3.²éÑ¯ÌØ¶¨ÈËÎïµÄËùÓÐº¢×Ó" << endl;
-    cout << "   4.²éÑ¯ÌØ¶¨ÈËÎïµÄ¸¸Ç×" << endl;
-    cout << "   5.²éÑ¯ÌØ¶¨ÈËÎïµÄËùÓÐÐÖµÜ" << endl;
-    cout << "   6.²éÑ¯ÌØ¶¨ÄêÁä¶ÎµÄÆ½¾ùÄêÁä" << endl;
-    cout << "   7.·µ»ØÉÏÒ»¼¶" << endl;
-    cout << "©¸-------------------------------------------©¼" << endl;
-    cout << "ÇëÊäÈëËùÐèÒªµÄ²éÕÒ·½Ê½£º";
+    cout << "â”Œ-------------------------------------------â”" << endl;
+    cout << "\tæŸ¥è¯¢ç³»ç»Ÿ" << endl;
+    cout << "   1.æŒ‰å§“åæŸ¥æ‰¾ç‰¹å®šäººç‰©" << endl;
+    cout << "   2.æŸ¥è¯¢æŸä»£çš„æ‰€æœ‰äººç‰©" << endl;
+    cout << "   3.æŸ¥è¯¢ç‰¹å®šäººç‰©çš„æ‰€æœ‰å­©å­" << endl;
+    cout << "   4.æŸ¥è¯¢ç‰¹å®šäººç‰©çš„çˆ¶äº²" << endl;
+    cout << "   5.æŸ¥è¯¢ç‰¹å®šäººç‰©çš„æ‰€æœ‰å…„å¼Ÿ" << endl;
+    cout << "   6.æŸ¥è¯¢ç‰¹å®šå¹´é¾„æ®µçš„å¹³å‡å¹´é¾„" << endl;
+    cout << "   7.è¿”å›žä¸Šä¸€çº§" << endl;
+    cout << "â””-------------------------------------------â”˜" << endl;
+    cout << "è¯·è¾“å…¥æ‰€éœ€è¦çš„æŸ¥æ‰¾æ–¹å¼ï¼š";
 
     int operation_idx = GetIndex(1, 7, 0);
 
@@ -1306,14 +1306,14 @@ void Data::func() {
     bool RUN = true;
     while (RUN) {
         system("cls");
-        cout << "©°-------------------------------------------©´" << endl;
-        cout << "\t¼Ò×åÆ×¹ÜÀíÏµÍ³" << endl;
-        cout << "   1.×åÆ×Õ¹Ê¾" << endl;
-        cout << "   2.²éÑ¯ÏµÍ³" << endl;
-        cout << "   3.ÐÅÏ¢ÐÞ¸ÄÏµÍ³" << endl;
-        cout << "   4.ÍË³ö" << endl;
-        cout << "©¸-------------------------------------------©¼" << endl;
-        cout << "ÇëÊäÈë²Ù×÷ÐòºÅ£º";
+        cout << "â”Œ-------------------------------------------â”" << endl;
+        cout << "\tå®¶æ—è°±ç®¡ç†ç³»ç»Ÿ" << endl;
+        cout << "   1.æ—è°±å±•ç¤º" << endl;
+        cout << "   2.æŸ¥è¯¢ç³»ç»Ÿ" << endl;
+        cout << "   3.ä¿¡æ¯ä¿®æ”¹ç³»ç»Ÿ" << endl;
+        cout << "   4.é€€å‡º" << endl;
+        cout << "â””-------------------------------------------â”˜" << endl;
+        cout << "è¯·è¾“å…¥æ“ä½œåºå·ï¼š";
 
         int func_idx = GetIndex(1, 4, 0);
 

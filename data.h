@@ -4,47 +4,47 @@
 #include "queue.h"
 #include "stack.h"
 
-// �������࣬�Լ����ж���Ĺ��ܺ�����
-// headΪ������ͷ��㡣
+// 二叉树类，以及所有额外的功能函数。
+// head为二叉树头结点。
 
 class Data {
 private:
     Node *head;
 
-    // �Զ����ó�Ա��Ϣ���ӵ�head�ĺ���λ��
+    // 自动将该成员信息添加到head的合适位置
     void append_auto(const string &, int, int, const string &);
 
-    // ���ݸ��������������ظó�Ա�Ľ��ָ�롣���������ڻ����Warning���档
+    // 根据给到的姓名，返回该成员的结点指针。姓名不存在会输出Warning警告。
     Node *GetNode_byName(const string &);
 
-    // ����string���ҵ�nameΪstring�Ľ�㣬���Զ���Node*��Ϊ�ýڵ�ĺ��ӡ�����Node*�ɰ������ӣ���bro����Ϊ�ա�
+    // 根据string，找到name为string的结点，并自动将Node*设为该节点的孩子。其中Node*可包含孩子，但bro必须为空。
     void AddChild_toParent(const string &, Node *);
 
-    // �жϵ�һ�������Ƿ�Ϊ�ڶ������������һ�����ӡ�����show_byGraph���ּ�ͷ����ʾ��
+    // 判断第一个参数是否为第二个参数的最后一个儿子。用于show_byGraph区分箭头的显示。
     bool IsLastChild(const string &, const string &);
 
-    // �жϸ������Ƿ���ڡ�
+    // 判断该姓名是否存在。
     bool IsMemberExist(const string &);
 
-    // ���ݸ��������֣����ظ������ǰһ���ڵ㣬���۸�������ص������bro����childΪ�����������
+    // 根据给到的名字，返回该人物的前一个节点，无论该人物（返回的人物）的bro还是child为给定名字人物。
     Node *GetNode_before_target(const string &);
 
-    // ʹ�õݹ飬���ո����ڵ㣬������������brother��child��
+    // 使用递归，回收给定节点，并回收其所有brother与child。
     void del_nodes_after_the_node_given(Node *, bool);
 
-    // ������б�չʾ�ĳ�Ա�ı��⣬����������
+    // 输出按列表展示的成员的标题，含“代”。
     void show_List_title();
 
-    // ������б�չʾ�ĳ�Ա�ı��⣬������������
+    // 输出按列表展示的成员的标题，不含“代”。
     void show_List_title_without_dynasty();
 
-    // ������б�չʾ�ı�β������������
+    // 输出按列表展示的表尾，含“代”。
     void show_List_tail();
 
-    // ������б�չʾ�ı�β��������������
+    // 输出按列表展示的表尾，不含“代”。
     void show_List_tail_without_dynasty();
 
-    // ���б�չʾ����������Ϣ��boolΪ�Ƿ�չʾ����������Ϣ��
+    // 按列表展示单条人物信息。bool为是否展示“代”的信息。
     void show_List_of_single_member(Node *, bool);
 
     void show_List_head_with_age();
@@ -53,7 +53,7 @@ private:
 
     void modify_name(Node *);
 
-    // �������ڵ�������޸�Ϊָ���ַ�����
+    // 将单个节点的姓名修改为指定字符串。
     void modify_single_name_to(Node *, string);
 
     void modify_single_father_to(Node *, string);
@@ -62,48 +62,48 @@ private:
 
     void modify_death_year(Node *);
 
-    // �������ﲻ����bro��cldʱ�ſ�ʹ�á�ͨ��ɾ�������ӵķ�ʽ���ĸ�����ĸ��ס�
+    // 仅该人物不存在bro或cld时才可使用。通过删除再添加的方式更改该人物的父亲。
     void modify_parent_only_when_without_BroORCld(Node *);
 
     void modify_pare_with_lrNode(Node *);
 
-    // ֱ��ɾ�������������bro��cldʱ�ſ�ʹ�á�
+    // 直接删除人物，仅人物无bro或cld时才可使用。
     void delete_node_which_without_BroORCld(Node *);
 
-    // ��������ѯ��
+    // 按姓名查询。
     void query_by_name();
 
     void query_by_dynasty();
 
-    // �������������У����������ֵ��
+    // 返回所有人物中，朝代的最大值。
     int get_Max_Dynasty();
 
-    // ���б��ķ�ʽ��չʾ����������ĳ�ض�ֵ�������������Ѱ�����ͷ��β��
+    // 按列表的方式，展示仅朝代符合某特定值的所有人物，输出已包含表头表尾。
     void show_special_dynasty_byLsit(int);
 
-    // ��ѯĳ�˵Ķ��ӡ�
+    // 查询某人的儿子。
     void query_someone_s_child();
 
     void query_someone_s_father();
 
     void query_someone_s_brother();
 
-    // ��չʾ������
+    // “展示”函数
     void Show();
 
-    // ���˳�������
+    // “退出”函数
     void EXIT();
 
-    // ������������
+    // “管理”函数
     void Manage();
 
-    // ͨ���ݹ飬ɾ�����нڵ㣬�ͷ�new���Ŀռ䡣������head���ɡ�
+    // 通过递归，删除所有节点，释放new出的空间。参数传head即可。
     void delete_memory_before_exit(Node *);
 
-    // ����������Ϣ��txt�ĵ���
+    // 保存所有信息至txt文档。
     void save_all();
 
-    // ��ѯ�ض�����ε�ƽ������
+    // 查询特定年龄段的平均年龄
     void query_get_average_age();
 
     void cout_and_show_average_age(int, int);
@@ -126,6 +126,6 @@ public:
 
     void query();
 
-    // �����к������ѵ���init��ȡ��Ϣ����ʼ��head��
+    // 总运行函数，已调用init读取信息，初始化head。
     void func();
 };

@@ -31,9 +31,9 @@ int GetIndex(int fro, int to, int flag) {
     int idx;
     while (!(cin >> idx) or idx > to or idx < fro) {
         if (flag == 0)
-            cout << "ÊäÈë¸ñÊ½»òÄÚÈÝ´íÎó£¬ÇëÖØÐÂÊäÈë£º";
+            cout << "è¾“å…¥æ ¼å¼æˆ–å†…å®¹é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥ï¼š";
         if (flag == 1)
-            cout << "ÊäÈë´íÎó£¬Äê·ÝÓ¦ÔÚ" << fro << "ÖÁ" << to << "ÄÚ£¡ÇëÖØÐÂÊäÈë£º";
+            cout << "è¾“å…¥é”™è¯¯ï¼Œå¹´ä»½åº”åœ¨" << fro << "è‡³" << to << "å†…ï¼è¯·é‡æ–°è¾“å…¥ï¼š";
         clear_all();
     }
     clear_all();

@@ -3,8 +3,8 @@
 #include "constant_vals_funcs.h"
 #include "person.h"
 
-// ¶þ²æÊ÷½ÚµãÀà£¬°üº¬µ¥¸ö³ÉÔ±µÄval£¬¼°Æä×ó×ÓÊ÷£¨¶ù×Ó£©ºÍÓÒ×ÓÊ÷£¨ÐÖµÜ£©µÄÖ¸Õë¡£
-// ÁíÍâÒ»Ð©²ÎÊýÓÃÓÚ´æ´¢±£´æÔÚ¶ÓÁÐ/¶ÑÊ±µÄË³ÐòÐÅÏ¢£¬¼°±»´æ´¢Ê±µÄ¡°´ú¡±ÐÅÏ¢¡£
+// äºŒå‰æ ‘èŠ‚ç‚¹ç±»ï¼ŒåŒ…å«å•ä¸ªæˆå‘˜çš„valï¼ŒåŠå…¶å·¦å­æ ‘ï¼ˆå„¿å­ï¼‰å’Œå³å­æ ‘ï¼ˆå…„å¼Ÿï¼‰çš„æŒ‡é’ˆã€‚
+// å¦å¤–ä¸€äº›å‚æ•°ç”¨äºŽå­˜å‚¨ä¿å­˜åœ¨é˜Ÿåˆ—/å †æ—¶çš„é¡ºåºä¿¡æ¯ï¼ŒåŠè¢«å­˜å‚¨æ—¶çš„â€œä»£â€ä¿¡æ¯ã€‚
 
 class Node {
 private:

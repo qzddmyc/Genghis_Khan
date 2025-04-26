@@ -3,7 +3,7 @@
 #include "constant_vals_funcs.h"
 #include "node.h"
 
-// ¶ÓÁĞ£¬ÏÈ½øÏÈ³ö¡£
+// é˜Ÿåˆ—ï¼Œå…ˆè¿›å…ˆå‡ºã€‚
 
 class Queue {
 private:
@@ -18,11 +18,11 @@ public:
 
     void push(Node *);
 
-    //°üº¬µÚ¼¸´úĞÅÏ¢µÄpush¡£
+    //åŒ…å«ç¬¬å‡ ä»£ä¿¡æ¯çš„pushã€‚
     void push(Node *, int);
 
     Node *pop();
 
-    // ÅĞ¶ÏÊÇ·ñÎª¿Õ
+    // åˆ¤æ–­æ˜¯å¦ä¸ºç©º
     bool IsEmpty();
 };
