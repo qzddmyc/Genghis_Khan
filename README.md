@@ -13,7 +13,7 @@
 - 家族族谱原文件保存在[Genghis Khan.txt](https://github.com/qzddmyc/Genghis_Khan/blob/main/resource/Genghis%20Khan.txt)中。
 - 该代码的所有操作均使用O(n)或O(n<sup>2</sup>)的复杂度实现，并未进行算法的优化。
 - 该项目下包含了两份完整的代码，介绍如下：
-  - main.cpp与include、resource、src这三个文件夹共同构成的是一份完整的代码，**供阅读使用**，编码格式为uft-8。注意，不要尝试在Microsoft Visual Studio中运行此代码，会因编码及部分语法问题报错。
+  - main.cpp与include、resource、src这三个文件夹共同构成的是一份完整的代码，**供阅读使用**，编码格式为utf-8。注意，不要尝试在Microsoft Visual Studio中运行此代码，会因编码及部分语法问题报错。
   - CONFIGURATION文件夹中是另一份完整的代码，编码格式为GBK，并同时提供了[在CLion 2024.1.1中配置项目的方法](https://github.com/qzddmyc/Genghis_Khan/blob/main/CONFIGURATION/Specification.md)，可按照该文件的指引，将代码放在CLion中正常运行。
 
 ### 代码解释
