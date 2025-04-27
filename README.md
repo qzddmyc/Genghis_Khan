@@ -12,8 +12,9 @@
 ### 注意事项
 - 家族族谱原文件保存在[Genghis Khan.txt](https://github.com/qzddmyc/Genghis_Khan/blob/main/resource/Genghis%20Khan.txt)中。
 - 该代码的所有操作均使用O(n)或O(n<sup>2</sup>)的复杂度实现，并未进行算法的优化。
-- 为了分类，该项目被分为多个文件夹进行存储。实际运行时，可以**将include、resource、src三个文件夹内的所有文件与main.cpp放至同一目录下**；否则，需要进行适当的配置并修改代码中的文件路径，代码才可正常运行。
-- 所有文件的编码格式均为utf-8，如果遇到编码错误问题，可以尝试利用记事本更换文件编码方式。且由于编码的问题，可能会导致文件的编译错误，建议将项目在CLion中使用。
+- 该项目下包含了两份完整的代码，介绍如下：
+  - main.cpp与include、resource、src这三个文件夹共同构成的是一份完整的代码，**供阅读使用**，编码格式为uft-8。注意，不要尝试在Microsoft Visual Studio中运行此代码，会因编码及部分语法问题报错。
+  - CONFIGURATION文件夹中是另一份完整的代码，编码格式为GBK，并同时提供了[在CLion 2024.1.1中配置项目的方法](https://github.com/qzddmyc/Genghis_Khan/blob/main/CONFIGURATION/Specification.md)，可按照该文件的指引，将代码放在CLion中正常运行。
 
 ### 代码解释
 - 族谱信息在代码中以二叉树为数据结构进行存储，左右子树分别存放的是后代与兄弟的信息。
